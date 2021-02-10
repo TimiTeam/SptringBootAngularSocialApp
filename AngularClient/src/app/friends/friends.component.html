@@ -1,0 +1,28 @@
+<div>
+    <div>
+      <h2>Friends</h2>
+    </div>
+    <div>
+      <table>
+        <thead>
+          <!--<tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>-->
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of friends">
+            <a href="/userPage" [queryParams]="{userId: user.userId}">
+                <td>*image </td>
+                <td><strong> {{user.firstName}} </strong></td>
+            </a>
+            <td>
+                <button (click)="removeFromFriend(user.userId)"> remove </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -1,0 +1,28 @@
+<div>
+    <div>
+      <h2>All Users</h2>
+    </div>
+    <div>
+      <table>
+        <thead>
+          <!--<tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>-->
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <a [routerLink]="['userPage/:userId']" [queryParams]="{userId: user.userId}">
+                <td>IMAGE</td>
+                <td>{{user.firstName}}</td>
+            </a>
+            <td>
+                <button (click)="addToFriends(user.userId)">Add</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
