@@ -2,5 +2,6 @@
     <header class="jumbotron">
       <p>{{ content }}</p>
     </header>
-  </div>
+    <a *ngIf="currentUser" [routerLink]="['/friends', currentUser.userId]">Friends</a>
+</div>
   

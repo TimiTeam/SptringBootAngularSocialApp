@@ -14,8 +14,9 @@
         </thead>
         <tbody>
           <tr *ngFor="let user of users">
-            <a [routerLink]="['userPage/:userId']" [queryParams]="{userId: user.userId}">
-                <td>IMAGE</td>
+            <a [routerLink]="['/userPage', user.userId]">
+            <td>
+              <img src="{{user.imageURL}}" height="100" width="100"/>  </td>
                 <td>{{user.firstName}}</td>
             </a>
             <td>

@@ -40,7 +40,7 @@ public class HomePageController {
         var currentUser = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User withe id: "+userId+" Not found"));
         friends.addAll(currentUser.getFriends()
-                .stream().map((u) -> new UserResponse(u.getId(), u.getUsername()))
+                .stream().map((u) -> new UserResponse(u.getId(), u.getUsername(), u.getSex().getName().name(), u.getImageURL()))
                 .collect(Collectors.toSet()));
         return ResponseEntity.ok(friends);
     }

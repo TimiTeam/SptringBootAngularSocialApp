@@ -4,6 +4,7 @@ import java.util.List;
 
 public class SignupRequest {
     private String username;
+    private String sex;
     private String email;
     private String password;
     private List<String> roles;
@@ -11,8 +12,9 @@ public class SignupRequest {
     public SignupRequest() {
     }
 
-    public SignupRequest(String username, String email, String password, List<String> roles) {
+    public SignupRequest(String username, String sex, String email, String password, List<String> roles) {
         this.username = username;
+        this.sex = sex;
         this.email = email;
         this.password = password;
         this.roles = roles;
@@ -24,6 +26,14 @@ public class SignupRequest {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public String getEmail() {

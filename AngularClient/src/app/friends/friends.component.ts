@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { UserPageService } from '../_services/user-page.service'
+import { Location } from '@angular/common';
 import { User } from '../model/user'
 
 @Component({
@@ -12,7 +13,7 @@ export class FriendsComponent implements OnInit {
 
   userId: string
   friends: User[]
-  constructor(private userPageService: UserPageService, private activedRoute: ActivatedRoute) { }
+  constructor(private location: Location, private userPageService: UserPageService, private activedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activedRoute.params.subscribe(param =>{
@@ -28,5 +29,9 @@ export class FriendsComponent implements OnInit {
     this.userPageService.removeFriend(+this.userId, +friedId).subscribe(data =>{
       window.location.reload();
     })
+  }
+
+  goToFriendAccount(friedId: string){
+    this.location.replaceState("")
   }
 }

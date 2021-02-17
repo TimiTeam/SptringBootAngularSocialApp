@@ -13,13 +13,13 @@
           </tr>-->
         </thead>
         <tbody>
-          <tr *ngFor="let user of friends">
-            <a href="/userPage" [queryParams]="{userId: user.userId}">
-                <td>*image </td>
-                <td><strong> {{user.firstName}} </strong></td>
+          <tr *ngFor="let friend of friends">
+            <a [routerLink]="['/userPage', friend.userId]">
+            <td><img src="{{friend.imageURL}}" height="100" width="100"/>  </td>
+                <td><strong> {{friend.firstName}} </strong></td>
             </a>
             <td>
-                <button (click)="removeFromFriend(user.userId)"> remove </button>
+                <button (click)="removeFromFriend(friend.userId)"> remove </button>
             </td>
           </tr>
         </tbody>

@@ -1,4 +1,6 @@
 export interface User{
     userId: number
-    firstName: string 
+    firstName: string
+    sex: string
+    imageURL: string
 }

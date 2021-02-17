@@ -1,6 +1,8 @@
 package com.gmail.timatiblackstar.authentication_example.controllers;
 
 import com.gmail.timatiblackstar.authentication_example.helpers.UserHelper;
+import com.gmail.timatiblackstar.authentication_example.models.ESex;
+import com.gmail.timatiblackstar.authentication_example.models.Sex;
 import com.gmail.timatiblackstar.authentication_example.payload.response.UserResponse;
 import com.gmail.timatiblackstar.authentication_example.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -59,7 +62,7 @@ public class HomeController {
         var currentUser = userHelper.getCurrentUser();
         var allUsers = userRepository.findAll().stream()
                 .filter((u) -> !u.equals(currentUser))
-                .map((u) -> new UserResponse(u.getId(), u.getUsername()))
+                .map((u) -> new UserResponse(u.getId(), u.getUsername(), (u.getSex() != null ? u.getSex().getName().name() : "empty"), u.getImageURL()))
                 .collect(Collectors.toSet());
         allUsers.remove(currentUser);
         return ResponseEntity.ok(allUsers);

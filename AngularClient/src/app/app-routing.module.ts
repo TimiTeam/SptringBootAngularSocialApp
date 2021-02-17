@@ -21,8 +21,8 @@ const routes: Routes = [
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'allUsers', component: UsersListComponent},
-  { path: 'allUsers/userPage/:userId', component: UserPageComponent},
-  { path: 'profile/friends/:userId', component: FriendsComponent},
+  { path: 'userPage/:userId', component: UserPageComponent},
+  { path: 'friends/:userId', component: FriendsComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

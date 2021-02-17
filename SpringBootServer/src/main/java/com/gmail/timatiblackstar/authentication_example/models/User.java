@@ -22,6 +22,14 @@ public class User {
     @Size(max = 25)
     private String username;
 
+    private String imageURL;
+
+    @ManyToOne
+    @JoinTable(name = "user_sex",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "sex_id"))
+    private Sex sex;
+
     @NotBlank
     @Size(max = 50)
     @Email
@@ -94,6 +102,22 @@ public class User {
 
     public Set<User> getFriends() {
         return friends;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public Sex getSex() {
+        return sex;
+    }
+
+    public void setSex(Sex sex) {
+        this.sex = sex;
     }
 
     public void setFriends(Set<User> friends) {
